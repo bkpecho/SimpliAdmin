@@ -13,5 +13,7 @@ router.get('/edit/:id', customerController.editCustomer);
 router.put('/edit/:id', customerController.editPost);
 router.delete('/edit/:id', customerController.deletePost);
 
+router.post('/search', customerController.searchCustomer);
+
 // it is important to export the router
 module.exports = router;
