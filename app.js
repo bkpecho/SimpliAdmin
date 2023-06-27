@@ -18,8 +18,14 @@ app.use(expressLayout);
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
+// home route
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  const locals = {
+    title: 'NodeJS',
+    description: 'Free NodeJS User Management System'
+  };
+
+  res.render('index', { locals });
 });
 
 app.listen(PORT, () => {
