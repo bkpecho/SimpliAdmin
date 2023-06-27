@@ -130,3 +130,31 @@ exports.deletePost = async (req, res) => {
     console.log(`🔴🔴🔴 Customer Data Deletion Failed: ${error}`);
   }
 };
+
+// GET - Search
+
+exports.searchCustomer = async (req, res) => {
+  const locals = {
+    title: 'Search Customer Data',
+    description: 'Free NodeJs User Management System'
+  };
+
+  try {
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, '');
+
+    const customers = await Customer.find({
+      $or: [
+        { firstName: { $regex: new RegExp(searchNoSpecialChar, 'i') } },
+        { lastName: { $regex: new RegExp(searchNoSpecialChar, 'i') } }
+      ]
+    });
+
+    res.render('search', {
+      customers,
+      locals
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
