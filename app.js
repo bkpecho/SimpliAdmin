@@ -2,9 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const methodOverride = require('method-override');
 const { flash } = require('express-flash-message');
 const session = require('express-session');
 const connectDB = require('./server/config/db');
+const customerRoutes = require('./server/routes/customer');
 
 const app = express();
 const PORT = 3000 || process.env.PORT;
@@ -12,11 +14,12 @@ const PORT = 3000 || process.env.PORT;
 // connect to database
 connectDB();
 
-const customerRoutes = require('./server/routes/customer');
-
 // parse data from forms
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// override url with PUT/DELETE
+app.use(methodOverride('_method'));
 
 // serve static files from Public folder
 app.use(express.static('public'));
