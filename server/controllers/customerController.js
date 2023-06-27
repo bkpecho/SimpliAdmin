@@ -71,6 +71,7 @@ exports.postCustomer = async (req, res) => {
   }
 };
 
+// VIEW - view customer data
 exports.viewCustomer = async (req, res) => {
   try {
     const customer = await Customer.findOne({ _id: req.params.id });
@@ -83,5 +84,39 @@ exports.viewCustomer = async (req, res) => {
     res.render('customer/view', { locals, customer });
   } catch (error) {
     console.log(`🔴🔴🔴 Customer Data Loading Failed: ${error}`);
+  }
+};
+
+// GET - edit customer data
+exports.editCustomer = async (req, res) => {
+  try {
+    const customer = await Customer.findOne({ _id: req.params.id });
+
+    const locals = {
+      title: 'Edit Customer Data',
+      description: 'Free NodeJS User Management System'
+    };
+
+    res.render('customer/edit', { locals, customer });
+  } catch (error) {
+    console.log(`🔴🔴🔴 Customer Data Loading Failed: ${error}`);
+  }
+};
+
+// PUT - Update Customer Data
+exports.editPost = async (req, res) => {
+  try {
+    await Customer.findByIdAndUpdate(req.params.id, {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      tel: req.body.tel,
+      email: req.body.email,
+      details: req.body.details,
+      updatedAt: Date.now()
+    });
+
+    res.redirect(`/edit/${req.params.id}`);
+  } catch (error) {
+    console.log(`🔴🔴🔴 Customer Data Update Failed: ${error}`);
   }
 };
