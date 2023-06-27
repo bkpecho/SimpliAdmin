@@ -120,3 +120,13 @@ exports.editPost = async (req, res) => {
     console.log(`🔴🔴🔴 Customer Data Update Failed: ${error}`);
   }
 };
+
+// DELETE - Delete Customer Data
+exports.deletePost = async (req, res) => {
+  try {
+    await Customer.deleteOne({ _id: req.params.id });
+    res.redirect('/');
+  } catch (error) {
+    console.log(`🔴🔴🔴 Customer Data Deletion Failed: ${error}`);
+  }
+};
