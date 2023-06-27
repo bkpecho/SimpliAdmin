@@ -11,6 +11,7 @@ router.post('/add', customerController.postCustomer);
 router.get('/view/:id', customerController.viewCustomer);
 router.get('/edit/:id', customerController.editCustomer);
 router.put('/edit/:id', customerController.editPost);
+router.delete('/edit/:id', customerController.deletePost);
 
 // it is important to export the router
 module.exports = router;
