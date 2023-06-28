@@ -5,8 +5,9 @@ const Customer = require('../models/Customer');
 exports.homepage = async (req, res) => {
   const messages = await req.consumeFlash('info');
   const locals = {
-    title: 'NodeJs',
-    description: 'Free NodeJS User Management System'
+    title: 'SimpliAdmin - Dashboard',
+    description:
+      'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
   };
 
   let perPage = 8;
@@ -35,8 +36,9 @@ exports.homepage = async (req, res) => {
 // get - about page
 exports.about = async (req, res) => {
   const locals = {
-    title: 'About',
-    description: 'Free NodeJs User Management System'
+    title: 'About - SimpliAdmin',
+    description:
+      'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
   };
 
   try {
@@ -49,8 +51,9 @@ exports.about = async (req, res) => {
 // get - new customer form
 exports.addCustomer = async (req, res) => {
   const locals = {
-    title: 'Add New Customer - NodeJS',
-    description: 'Free NodeJS User Management System'
+    title: 'Add New Customer - SimpliAdmin',
+    description:
+      'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
   };
 
   res.render('customer/add', locals);
@@ -69,7 +72,8 @@ exports.postCustomer = async (req, res) => {
 
   const locals = {
     title: 'New Customer Added!',
-    description: 'Free NodeJS User Management System'
+    description:
+      'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
   };
 
   try {
@@ -91,8 +95,9 @@ exports.viewCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
 
     const locals = {
-      title: 'View Customer Data',
-      description: 'Free NodeJS User Management System'
+      title: 'View Customer Data - SimpliAdmin',
+      description:
+        'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
     };
 
     res.render('customer/view', { locals, customer });
@@ -107,8 +112,9 @@ exports.editCustomer = async (req, res) => {
     const customer = await Customer.findOne({ _id: req.params.id });
 
     const locals = {
-      title: 'Edit Customer Data',
-      description: 'Free NodeJS User Management System'
+      title: 'Edit Customer Data - SimpliAdmin',
+      description:
+        'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
     };
 
     res.render('customer/edit', { locals, customer });
@@ -149,8 +155,9 @@ exports.deletePost = async (req, res) => {
 
 exports.searchCustomer = async (req, res) => {
   const locals = {
-    title: 'Search Customer Data',
-    description: 'Free NodeJs User Management System'
+    title: 'Search Customer Data - SimpliAdmin',
+    description:
+      'SimpliAdmin is a Node.js CRUD app using Express, MongoDB, EJS, and Bootstrap for easy user data management.'
   };
 
   try {
