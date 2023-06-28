@@ -1,6 +1,6 @@
 # SimpliAdmin
 
-SimpliAdmin is a straightforward CRUD (Create, Read, Update, Delete) app developed with Node.js, Express, MongoDB, EJS, and Bootstrap. It provides a user-friendly interface that allows you to effortlessly manage user data.
+SimpliAdmin is a user-friendly CRUD (Create, Read, Update, Delete) application built using Node.js, Express, MongoDB, EJS, and Bootstrap. It simplifies the management of user data by providing a straightforward interface.
 
 ## Features
 
@@ -23,6 +23,11 @@ To run SimpliAdmin on your local machine, follow these simple steps:
 5. Start the application in development mode: `npm run dev`
 6. Access the app in your browser at `http://localhost:3000`
 
+## Links
+
+- Live Site: [SimpliAdmin Live](https://simpliadmin.onrender.com)
+- GitHub Repository: [SimpliAdmin GitHub](https://github.com/bkpecho/SimpliAdmin)
+
 ## Technologies Used
 
 - Node.js
@@ -30,6 +35,10 @@ To run SimpliAdmin on your local machine, follow these simple steps:
 - MongoDB
 - EJS (Embedded JavaScript)
 - Bootstrap
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Author
 
