@@ -9,7 +9,7 @@ exports.homepage = async (req, res) => {
     description: 'Free NodeJS User Management System'
   };
 
-  let perPage = 12;
+  let perPage = 8;
   let page = req.query.page || 1;
 
   try {
